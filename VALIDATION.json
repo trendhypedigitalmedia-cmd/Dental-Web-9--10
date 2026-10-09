@@ -1,0 +1,23 @@
+{
+  "html_documents": 14,
+  "local_references": "passed",
+  "one_initial_visible_page": "passed",
+  "javascript_syntax": "passed",
+  "browser_visual_and_interaction_tests": "blocked: unavailable browser runtime",
+  "pages": [
+    "index.html",
+    "treatments/index.html",
+    "appointment/index.html",
+    "gallery/index.html",
+    "privacy/index.html",
+    "contact/index.html",
+    "about/index.html",
+    "doctors/index.html",
+    "treatments/smile/index.html",
+    "treatments/root-canal/index.html",
+    "treatments/crowns/index.html",
+    "treatments/implants/index.html",
+    "treatments/braces/index.html",
+    "treatments/general/index.html"
+  ]
+}
