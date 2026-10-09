@@ -17,10 +17,10 @@ All 14 page files and all local href/src references were checked. Each page has 
 Browser installation failed because the browser downloads were truncated/invalid. Therefore no rendered mobile, tablet, desktop, screenshot, WhatsApp handoff, or browser-interaction pass is claimed. Check 320/390/768/1440px widths and real Android/iPhone devices before broad outreach. No conversion data, Lighthouse or Core Web Vitals score is available.
 
 ## Still needed from the owner
-The contact number +91 82208 00499 is inherited sample data, not verified. Provide the actual clinic name/locality/address, hours, confirmed phone/WhatsApp, doctor names/qualifications, authorised doctor/clinic photographs and genuine review sources. Those cannot be safely invented or substituted with another clinic's data.
+Personal contact numbers and their call/WhatsApp destinations have been removed. Provide the actual clinic name/locality/address, hours, confirmed phone/WhatsApp, doctor names/qualifications, authorised doctor/clinic photographs and genuine review sources. Those cannot be safely invented or substituted with another clinic's data.
 
 ## Conversion limitations
-Sample doctor cards and stock photography demonstrate layout but do not establish actual clinical trust. The exact address, map, hours and authentic proof are missing. The WhatsApp flow drafts a request; it does not book or submit automatically. Analytics is not installed; a configured account and deployed site are needed to measure visits and enquiries. A visible pause control remains a production accessibility improvement, but was not restored because the user requested its removal.
+Sample doctor cards and stock photography demonstrate layout but do not establish actual clinical trust. The exact address, map, hours and authentic proof are missing. The appointment form is a local demo and does not send or book requests. Analytics is not installed; a configured account and deployed site are needed to measure visits and enquiries. A visible pause control remains a production accessibility improvement, but was not restored because the user requested its removal.
 
 ## Hosting
 Vercel configuration is included. Import the repository with framework Other, output public, and no build command. A live deployment has not been completed: the Vercel dashboard required sign-in. This sample stays noindex until real clinic details are ready. Do not remove that setting merely to promote the demo in patient searches.
