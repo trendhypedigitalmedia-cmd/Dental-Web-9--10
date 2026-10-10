@@ -94,3 +94,8 @@
 @media(max-width:900px){.hero,.hero-slide{min-height:560px}.hero-copy{padding-right:6%}}
 @media(max-width:640px){.hero,.hero-slide{min-height:560px}.hero-copy{padding:44px 6% 82px;max-width:100%}.hero-copy h1,.hero-copy h2{font-size:clamp(43px,12vw,55px)}.hero-video-toggle{right:6%;bottom:14px}}
 @media(prefers-reduced-motion:reduce){.hero-slide.active{animation:none}}
+
+
+/* Keep the video hero copy confidently on the left side of the frame. */
+.hero-copy{justify-self:start;margin-right:auto;max-width:min(720px,62vw);text-align:left}
+@media(max-width:640px){.hero-copy{max-width:100%}}

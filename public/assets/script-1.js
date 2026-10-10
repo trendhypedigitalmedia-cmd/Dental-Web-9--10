@@ -23,9 +23,12 @@ document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(
 const heroVideo=document.querySelector('.hero-video'),videoToggle=document.querySelector('.hero-video-toggle');
 if(heroVideo&&videoToggle){
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-  const setVideoLabel=(paused)=>{videoToggle.textContent=paused?'Play video':'Pause video';videoToggle.setAttribute('aria-label',paused?'Play clinic video':'Pause clinic video')};
+  const setSlowPlayback=()=>{heroVideo.defaultPlaybackRate=0.65;heroVideo.playbackRate=0.65};
+  setSlowPlayback();
+  heroVideo.addEventListener('loadedmetadata',setSlowPlayback,{once:true});
+  const setVideoLabel=(paused)=>{videoToggle.textContent=paused?'Play video':'Pause clinic video';videoToggle.setAttribute('aria-label',paused?'Play clinic video':'Pause clinic video')};
   if(reducedMotion.matches){heroVideo.pause();setVideoLabel(true)}
-  else{heroVideo.play().then(()=>setVideoLabel(false)).catch(()=>setVideoLabel(true))}
+  else{heroVideo.play().then(()=>{setSlowPlayback();setVideoLabel(false)}).catch(()=>setVideoLabel(true))}
   videoToggle.addEventListener('click',()=>{
     if(heroVideo.paused){heroVideo.play().then(()=>setVideoLabel(false)).catch(()=>setVideoLabel(true))}
     else{heroVideo.pause();setVideoLabel(true)}
