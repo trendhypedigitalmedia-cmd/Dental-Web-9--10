@@ -19,7 +19,7 @@ const form=document.getElementById('appointment-form'),confirmation=document.get
 form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;const d=new FormData(form);const summary=`${d.get('name')} · ${d.get('treatment')} · Preferred: ${d.get('date')||'Please suggest a day'}, ${d.get('time')}. Contact: ${d.get('phone')}.`;document.getElementById('request-summary').textContent=summary;let message=`Hello Vijay Dental, I would like to request a consultation.\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nConcern: ${d.get('treatment')}\nPreferred day: ${d.get('date')||'Please suggest a day'}\nPreferred time: ${d.get('time')}`;if(d.get('note').trim())message+=`\nNote: ${d.get('note')}`;document.getElementById('send-request').hidden=true;form.hidden=true;confirmation.hidden=false;confirmation.setAttribute('tabindex','-1');confirmation.focus()};document.getElementById('edit-request').onclick=()=>{confirmation.hidden=true;form.hidden=false;document.getElementById('visitor-name').focus()};
 document.querySelectorAll('a[href="/appointment"]').forEach(a=>a.addEventListener('click',()=>{if(modal.open)modal.close()}));
 document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(timer));document.querySelector('.hero').addEventListener('mouseleave',schedule);document.querySelector('.hero').addEventListener('focusin',()=>clearInterval(timer));document.querySelector('.hero').addEventListener('focusout',()=>setTimeout(schedule,0));slide(0);pauseLabel();route();
-}
+
 const heroVideo=document.querySelector('.hero-video'),videoToggle=document.querySelector('.hero-video-toggle');
 if(heroVideo&&videoToggle){
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
