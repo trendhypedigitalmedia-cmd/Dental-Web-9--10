@@ -20,19 +20,19 @@ form.onsubmit=e=>{e.preventDefault();if(!form.reportValidity())return;const d=ne
 document.querySelectorAll('a[href="/appointment"]').forEach(a=>a.addEventListener('click',()=>{if(modal.open)modal.close()}));
 document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(timer));document.querySelector('.hero').addEventListener('mouseleave',schedule);document.querySelector('.hero').addEventListener('focusin',()=>clearInterval(timer));document.querySelector('.hero').addEventListener('focusout',()=>setTimeout(schedule,0));slide(0);pauseLabel();route();
 
-const heroVideo=document.querySelector('.hero-video'),videoToggle=document.querySelector('.hero-video-toggle');
-if(heroVideo&&videoToggle){
+const heroVideo=document.querySelector('.hero-video');
+if(heroVideo){
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const setSlowPlayback=()=>{heroVideo.defaultPlaybackRate=0.65;heroVideo.playbackRate=0.65};
-  setSlowPlayback();
-  heroVideo.addEventListener('loadedmetadata',setSlowPlayback,{once:true});
-  const setVideoLabel=(paused)=>{videoToggle.textContent=paused?'Play video':'Pause clinic video';videoToggle.setAttribute('aria-label',paused?'Play clinic video':'Pause clinic video')};
-  if(reducedMotion.matches){heroVideo.pause();setVideoLabel(true)}
-  else{heroVideo.play().then(()=>{setSlowPlayback();setVideoLabel(false)}).catch(()=>setVideoLabel(true))}
-  videoToggle.addEventListener('click',()=>{
-    if(heroVideo.paused){heroVideo.play().then(()=>setVideoLabel(false)).catch(()=>setVideoLabel(true))}
-    else{heroVideo.pause();setVideoLabel(true)}
+  if(reducedMotion.matches){heroVideo.pause()}
+  else{
+    setSlowPlayback();
+    heroVideo.addEventListener('loadedmetadata',setSlowPlayback,{once:true});
+    heroVideo.play().catch(()=>{});
+  }
+  reducedMotion.addEventListener('change',event=>{
+    if(event.matches){heroVideo.pause()}
+    else{setSlowPlayback();heroVideo.play().catch(()=>{})}
   });
-  reducedMotion.addEventListener('change',event=>{if(event.matches){heroVideo.pause();setVideoLabel(true)}});
 }
 })();
